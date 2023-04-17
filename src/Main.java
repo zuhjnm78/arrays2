@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Random;
+
 
 public class Main {
 
@@ -10,20 +9,24 @@ public class Main {
         task4();
 
     }
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
 
 
     public static void task1() {
 
         System.out.println("Задача 1");
-
-
-        int[] book = new int[30];
-        Random random = new Random();
+        int[] arr = generateRandomArray();
         int sum = 0;
 
-        for (int i = 0; i < book.length; i++) {
-            book[i] = random.nextInt(100001) + 100000; // генерируем случайное число от 100000 до 200000
-            sum += book[i]; // добавляем число в сумму
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
 
         System.out.println("Сумма трат за месяц составила " + sum + " рублей .");
@@ -34,23 +37,21 @@ public class Main {
 
         System.out.println("Задача 2");
 
-        int[] book = new int[30];
-        Random random = new Random();
+        int[] arr = generateRandomArray();
         int sum = 0;
 
-        for (int i = 0; i < book.length; i++) {
-            book[i] = random.nextInt(100001) + 100000;
-            sum += book[i];
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
 
-        int maxSalary = book[0];
-        int minSalary = book[0];
-        for (int index = 0; index < book.length; index++) {
-            if (book[index] > maxSalary) {
-                maxSalary = book[index];
+        int maxSalary = arr[0];
+        int minSalary = arr[0];
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] > maxSalary) {
+                maxSalary = arr[index];
             }
-            if (book[index] < minSalary) {
-                minSalary = book[index];
+            if (arr[index] < minSalary) {
+                minSalary = arr[index];
 
             }
 
@@ -64,34 +65,29 @@ public class Main {
 
         System.out.println("Задача 3");
 
-
-        int[] book = new int[30];
-        Random random = new Random();
+        int[] arr = generateRandomArray();
         int sum = 0;
 
-        for (int i = 0; i < book.length; i++) {
-            book[i] = random.nextInt(100001) + 100000; // генерируем случайное число от 100000 до 200000
-            sum += book[i]; // добавляем число в сумму
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i]; // добавляем число в сумму
         }
         double averageSalary = 0;
-        if (book.length > 0) {
 
             double totalSalary = 0;
-            for (int j = 0; j < book.length; j++) {
-                totalSalary += book[j];
+            for (int j = 0; j < arr.length; j++) {
+                totalSalary += arr[j];
             }
-            averageSalary = totalSalary / book.length;
+            averageSalary = totalSalary / arr.length;
             System.out.printf("Средняя сумма трат за месяц составила %.2f рублей. %n", averageSalary);
 
-
         }
-    }
+
 
     public static void task4() {
 
         System.out.println("Задача 4");
 
-        char reversFullName[] = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        char [] reversFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
         for (int i = 0; i < reversFullName.length / 2; i++) {
             char c = reversFullName[i];
             reversFullName[i] = reversFullName[reversFullName.length - 1 - i];
@@ -102,3 +98,5 @@ public class Main {
         System.out.print(reversFullName);
     }
 }
+
+
